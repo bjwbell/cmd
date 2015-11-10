@@ -1,2 +1,2 @@
 # cmd
-Experimental
+Extracted from `go/src/cmd/internal/obj`.
