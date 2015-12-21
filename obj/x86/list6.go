@@ -30,6 +30,12 @@
 
 package x86
 
+import (
+	"fmt"
+
+	"github.com/obj2"
+)
+
 var Register = []string{
 	"AL", /* [D_AL] */
 	"CL",
@@ -151,9 +157,9 @@ var Register = []string{
 // 	obj.RegisterOpcode(obj.ABaseAMD64, Anames)
 // }
 
-// func Rconv(r int) string {
-// 	if REG_AL <= r && r-REG_AL < len(Register) {
-// 		return Register[r-REG_AL]
-// 	}
-// 	return fmt.Sprintf("Rgok(%d)", r-obj.RBaseAMD64)
-// }
+func Rconv(r int) string {
+	if REG_AL <= r && r-REG_AL < len(Register) {
+		return Register[r-REG_AL]
+	}
+	return fmt.Sprintf("Rgok(%d)", r-obj.RBaseAMD64)
+}
