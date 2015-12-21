@@ -33,7 +33,7 @@ package x86
 import (
 	"fmt"
 
-	"github.com/obj2"
+	"github.com/bjwbell/cmd/obj"
 )
 
 var Register = []string{
