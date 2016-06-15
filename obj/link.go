@@ -30,6 +30,13 @@
 
 package obj
 
+// An As denotes an assembler opcode.
+// There are some portable opcodes, declared here in package obj,
+// that are common to all architectures.
+// However, the majority of opcodes are arch-specific
+// and are declared in their respective architecture's subpackage.
+type As int16
+
 // Prog.as opcodes.
 // These are the portable opcodes, common to all architectures.
 // Each architecture defines many more arch-specific opcodes,
