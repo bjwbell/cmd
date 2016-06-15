@@ -4,6 +4,8 @@
 
 package obj
 
+import "os"
+
 const (
 	ABase386 = (1 + iota) << 12
 	ABaseARM
@@ -22,3 +24,14 @@ const (
 	RBasePPC64 = 4 * 1024 // range [4k, 8k)
 	RBaseARM64 = 8 * 1024 // range [8k, 12k)
 )
+
+func envOr(key, value string) string {
+	if x := os.Getenv(key); x != "" {
+		return x
+	}
+	return value
+}
+
+func Getgoos() string {
+	return envOr("GOOS", "")
+}
