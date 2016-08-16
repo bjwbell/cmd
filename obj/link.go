@@ -71,7 +71,7 @@ const (
 // Link holds the context for writing object code from a compiler
 // to be linker input or for reading that input into the linker.
 type Link struct {
-	Flag_shared          int32
+	Flag_shared          bool
 	Flag_dynlink         bool
 	Framepointer_enabled bool
 }
