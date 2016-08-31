@@ -12,6 +12,7 @@ const (
 	ABaseAMD64
 	ABasePPC64
 	ABaseARM64
+	ABaseMIPS64
 	AMask = 1<<12 - 1 // AND with this to use the opcode as an array index.
 )
 
@@ -23,6 +24,7 @@ const (
 	RBaseARM   = 3 * 1024
 	RBasePPC64 = 4 * 1024 // range [4k, 8k)
 	RBaseARM64 = 8 * 1024 // range [8k, 12k)
+	RBaseMIPS64 = 13 * 1024 // range [13k, 14k)
 )
 
 func envOr(key, value string) string {
