@@ -75,3 +75,12 @@ type Link struct {
 	Flag_dynlink         bool
 	Framepointer_enabled bool
 }
+
+// The smallest possible offset from the hardware stack pointer to a local
+// variable on the stack. Architectures that use a link register save its value
+// on the stack in the function prologue and so always have a pointer between
+// the hardware stack pointer and the local variable area.
+func (ctxt *Link) FixedFrameSize() int64 {
+	// TODO: for now, assume amd64
+	return 0
+}
