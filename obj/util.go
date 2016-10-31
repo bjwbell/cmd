@@ -4,7 +4,10 @@
 
 package obj
 
-import "os"
+import (
+	"log"
+	"os"
+)
 
 const (
 	ABase386 = (1 + iota) << 12
@@ -41,5 +44,21 @@ func Getgoos() string {
 }
 
 var (
-	GOOS = envOr("GOOS", "linux")
+	GOOS         = envOr("GOOS", "linux")
+	GOARM        = goarm()
+	defaultGOARM = "5"
 )
+
+func goarm() int {
+	switch v := envOr("GOARM", defaultGOARM); v {
+	case "5":
+		return 5
+	case "6":
+		return 6
+	case "7":
+		return 7
+	}
+	// Fail here, rather than validate at multiple call sites.
+	log.Fatalf("Invalid GOARM value. Must be 5, 6, or 7.")
+	panic("unreachable")
+}
