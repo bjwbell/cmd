@@ -71,9 +71,14 @@ const (
 // Link holds the context for writing object code from a compiler
 // to be linker input or for reading that input into the linker.
 type Link struct {
+	Arch                 *LinkArch
 	Flag_shared          bool
 	Flag_dynlink         bool
 	Framepointer_enabled bool
+}
+
+// LinkArch is a stubbed struct
+type LinkArch struct {
 }
 
 // The smallest possible offset from the hardware stack pointer to a local
