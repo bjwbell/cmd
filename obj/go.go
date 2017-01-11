@@ -5,5 +5,6 @@
 package obj
 
 var (
-	Framepointer_enabled int
+	Framepointer_enabled     int
+	Preemptibleloops_enabled int
 )
