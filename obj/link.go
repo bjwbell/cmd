@@ -70,7 +70,9 @@ const (
 
 // An LSym is the sort of symbol that is written to an object file.
 type LSym struct {
-	Name string
+	Name    string
+	Version int16
+	Size    int
 }
 
 // The compiler needs LSym to satisfy fmt.Stringer, because it stores
@@ -83,6 +85,7 @@ func (s *LSym) String() string {
 // to be linker input or for reading that input into the linker.
 type Link struct {
 	Arch                 *LinkArch
+	Pathname             string
 	Flag_shared          bool
 	Flag_dynlink         bool
 	Framepointer_enabled bool
