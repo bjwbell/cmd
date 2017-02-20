@@ -68,6 +68,17 @@ const (
 	A_ARCHSPECIFIC
 )
 
+// An LSym is the sort of symbol that is written to an object file.
+type LSym struct {
+	Name string
+}
+
+// The compiler needs LSym to satisfy fmt.Stringer, because it stores
+// an LSym in ssa.ExternSymbol.
+func (s *LSym) String() string {
+	return s.Name
+}
+
 // Link holds the context for writing object code from a compiler
 // to be linker input or for reading that input into the linker.
 type Link struct {
