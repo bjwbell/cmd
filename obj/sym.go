@@ -33,3 +33,20 @@ func Linklookup(ctxt *Link, name string, v int) *LSym {
 	}
 	return s
 }
+
+func (ctxt *Link) Lookup(name string, v int) *LSym {
+	// TODO
+	// s := ctxt.Hash[SymVer{name, v}]
+	// if s != nil {
+	// 	return s
+	// }
+
+	s := &LSym{
+		Name:    name,
+		Version: int16(v),
+		Size:    0,
+	}
+	// TODO
+	// ctxt.Hash[SymVer{name, v}] = s
+	return s
+}
