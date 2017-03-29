@@ -20,6 +20,7 @@ func WorkingDir() string {
 func Linknew(arch *LinkArch) *Link {
 	ctxt := new(Link)
 	ctxt.Arch = arch
+	ctxt.Arch.IntSize = 8
 	ctxt.Pathname = WorkingDir()
 	ctxt.Framepointer_enabled = true
 	return ctxt
