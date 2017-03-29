@@ -89,6 +89,8 @@ type Link struct {
 	Flag_shared          bool
 	Flag_dynlink         bool
 	Framepointer_enabled bool
+	DiagFunc             func(string, ...interface{})
+	Errors               int
 }
 
 // LinkArch is a stubbed struct
@@ -102,4 +104,9 @@ type LinkArch struct {
 func (ctxt *Link) FixedFrameSize() int64 {
 	// TODO: for now, assume amd64
 	return 0
+}
+
+func (ctxt *Link) Diag(format string, args ...interface{}) {
+	ctxt.Errors++
+	ctxt.DiagFunc(format, args...)
 }
