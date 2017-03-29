@@ -95,6 +95,7 @@ type Link struct {
 
 // LinkArch is a stubbed struct
 type LinkArch struct {
+	IntSize int
 }
 
 // The smallest possible offset from the hardware stack pointer to a local
